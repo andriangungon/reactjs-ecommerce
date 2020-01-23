@@ -7,15 +7,15 @@ import { auth } from '../../firebase/firebase.utils';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => (    
-    <div className='header'>
+const Header = ({ currentUser }) => (       
+    <div className='header'>    
         <Link className='logo-container' to="/">
             <Logo className='logo' />
         </Link>
         <div className='options'>
             <Link className='option' to='/shop'>SHOP</Link>
             <Link className='option' to='/shop'>CONTACT</Link>
-            <Link className='option' to='/sign-in'>SIGN IN</Link>
+            <Link className='option' to='/sign-in'>SIGN IN</Link>            
             {
                 currentUser ?
                 <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
@@ -27,7 +27,7 @@ const Header = ({ currentUser }) => (
 )
 
 const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser    
 });
 
 export default connect(mapStateToProps)(Header);
